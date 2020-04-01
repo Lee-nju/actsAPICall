@@ -61,21 +61,21 @@ public class Main {
             flag = true;
             // 不为一般的混合力度，t==k
             // flag = false;
-            // t = 3;
+            // strength = 3;
             if (flag) {
                 // 存生成的测试用例集
                 ts = FireEye.generateTestSet(ts, sut);
+                // 生成力度为strength混合力度的测试用例
             } else {
+
                 ArrayList<Relation> relationsCopy = sut.getRelationManager().getRelations();
-                ArrayList<Relation> relationsInUse = new ArrayList();
+                ArrayList<Relation> relationsInUse;
                 Relation e;
 
                 relationsInUse = new ArrayList(relationsCopy);
                 HashSet<Parameter> allParam = new HashSet();
-                Iterator var8 = relationsInUse.iterator();
 
-                while (var8.hasNext()) {
-                    Relation r = (Relation) var8.next();
+                for (Relation r : relationsInUse) {
                     allParam.addAll(r.getParams());
                 }
 
